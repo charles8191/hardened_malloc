@@ -14,7 +14,6 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u "${{ github.actor }}" --password-stdin
       - name: Build container
         run: |
-          chmod +x build.sh
           podman build -t ghcr.io/charles8191/hardened_malloc/artifact .
       - name: Build binary
         run: |
