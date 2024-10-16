@@ -3,7 +3,7 @@
 This is a simple project that builds hardened_malloc from Git every Monday and then uploads it, using the Red Hat UBI container. There is also a container artifact if you'd like to build it yourself (hardened_malloc's source code is included inside of it):
 
 ```bash
-mkdir output
+mkdir out
 podman run -v "$(pwd)/out":/out ghcr.io/charles8191/hardened_malloc/artifact 
 ```
 
