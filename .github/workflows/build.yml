@@ -23,12 +23,9 @@ jobs:
           cp out/libhardened_malloc.so .
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          echo "-----DEBUGGING INFORMATION-----"
-          md5sum libhardened_malloc.so
-          git show
-          echo "-----END DEBUGGING INFORMATION-----"
           git add .
-          git commit -m "Upload libhardened_malloc.so"
+          git add libhardened_malloc.so
+          git commit --allow-empty -m "Upload libhardened_malloc.so"
           git push
       - name: Push container
         run: |
