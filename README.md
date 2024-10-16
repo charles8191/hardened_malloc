@@ -14,4 +14,4 @@ wget https://github.com/charles8191/hardened_malloc/raw/refs/heads/main/libharde
 LD_PRELOAD=./libhardened_malloc.so /bin/echo "Hello, world!"
 ```
 
-<sup><sub>Charles, charles8191, charles2, charles9 or Pupa is not affilated with GrapheneOS in any way.</sub></sup>
+<sup><sub>Charles or Pupa is not affilated with GrapheneOS in any way, shape or form.</sub></sup>
