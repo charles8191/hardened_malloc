@@ -10,21 +10,22 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
-      - name: Push
+      - name: Login
         run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u "${{ github.actor }}" --password-stdin
       - name: Build container
         run: |
+          chmod +x build.sh
           podman build -t ghcr.io/charles8191/hardened_malloc/artifact .
       - name: Build binary
         run: |
           mkdir out
-          podman run -v "$(pwd)/out":/out -it ghcr.io/charles8191/hardened_malloc/artifact
+          podman run -v "$(pwd)/out":/out ghcr.io/charles8191/hardened_malloc/artifact
       - name: Push binary
         run: |
           cp out/libhardened_malloc.so .
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add libhardened_malloc.so
+          git add .
           git commit -m "Upload libhardened_malloc.so"
           git push
       - name: Push container
