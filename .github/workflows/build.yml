@@ -24,7 +24,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add .
-          git add libhardened_malloc.so
           git commit --allow-empty -m "Upload libhardened_malloc.so"
           git push
       - name: Push container
