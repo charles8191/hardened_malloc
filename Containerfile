@@ -1,5 +1,4 @@
-FROM docker.io/redhat/ubi9
-RUN dnf -y install git gcc-c++ make && dnf clean all
-RUN git clone https://github.com/GrapheneOS/hardened_malloc.git /hardened_malloc
+FROM docker.io/ubuntu:24.04
+RUN apt-get update && apt-get -y install git g++ make && apt-get clean
 COPY build.sh /
 ENTRYPOINT ["/build.sh"]
