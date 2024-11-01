@@ -1,6 +1,6 @@
 # hardened_malloc binary 
 
-This is a simple project that builds [hardened_malloc](https://github.com/GrapheneOS/hardened_malloc) from Git every Monday and then uploads it, using the Ubuntu 24.04 container. There is also a container artifact if you'd like to build it yourself:
+This is a simple project that builds [hardened_malloc](https://github.com/GrapheneOS/hardened_malloc) from Git every Monday and then uploads it, using the Rocky 9 container. There is also a container artifact if you'd like to build it yourself:
 
 ```bash
 mkdir out
