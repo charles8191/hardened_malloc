@@ -1,4 +1,4 @@
-FROM docker.io/ubuntu:24.04
-RUN apt-get update && apt-get -y install git g++ make && apt-get clean
+FROM quay.io/rockylinux/rockylinux:9
+RUN dnf -y install git gcc-c++ make && dnf clean all
 COPY build.sh /
 ENTRYPOINT ["/build.sh"]
