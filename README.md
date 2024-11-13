@@ -20,4 +20,4 @@ wget https://github.com/charles8191/hardened_malloc/raw/refs/heads/main/libharde
 LD_PRELOAD=./libhardened_malloc-DISTRO.so /bin/echo "Hello, world!"
 ```
 
-<sup><sub>Charles or the Netherite Project is not affilated with GrapheneOS in any way, shape or form.</sub></sup>
+<sup><sub>Charles is not affilated with GrapheneOS in any way, shape or form.</sub></sup>
