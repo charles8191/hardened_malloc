@@ -5,6 +5,8 @@
 
 This is a simple containerized build tool that builds the very latest [hardened_malloc](https://github.com/GrapheneOS/hardened_malloc) from Git.
 
+We build this weekly using GitHub Actions.
+
 You can build on Alpine (latest) for musl systems, and Debian (stable) for glibc systems.
 
 There is a container artifact to build this, or you can use `podman-build.1` to build the container. Replace `DISTRO` with either `alpine` or `debian`:
