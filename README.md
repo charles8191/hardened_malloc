@@ -1,5 +1,8 @@
 # hardened_malloc binary 
 
+> [!WARNING]  
+> The `libstdc++` and `libgcc` packages or their equivalents should be installed. Otherwise, you may break your system by trying to preload it globally.
+
 This is a simple containerized build tool that builds the very latest [hardened_malloc](https://github.com/GrapheneOS/hardened_malloc) from Git.
 
 You can build on Alpine (latest) for musl systems, and Debian (stable) for glibc systems.
