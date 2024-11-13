@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 set -ex
 git clone https://github.com/GrapheneOS/hardened_malloc.git /hardened_malloc
 cd hardened_malloc
