@@ -1,0 +1,4 @@
+FROM docker.io/debian:stable
+RUN apt-get update && apt-get -y install git gcc g++ make && apt-get clean
+COPY build.sh /
+ENTRYPOINT ["/build.sh"]

@@ -1,0 +1,4 @@
+FROM docker.io/alpine:latest
+RUN apk add git gcc g++ make && rm -rf /var/cache/apk
+COPY build.sh /
+ENTRYPOINT ["/build.sh"]

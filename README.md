@@ -1,17 +1,23 @@
 # hardened_malloc binary 
 
-This is a simple containerized build tool that builds the very latest [hardened_malloc](https://github.com/GrapheneOS/hardened_malloc) from Git, using the Rocky 9 container, and every Monday we upload it using CI. There is also a container artifact if you'd like to build it yourself (or you can build the container using `podman build`):
+This is a simple containerized build tool that builds the very latest [hardened_malloc](https://github.com/GrapheneOS/hardened_malloc) from Git.
+
+You can build on Alpine (latest) for musl systems, and Debian (stable) for glibc systems.
+
+There is a container artifact to build this, or you can use `podman-build.1` to build the container. Replace `DISTRO` with either `alpine` or `debian`:
 
 ```bash
 mkdir out
-podman run -v "$(pwd)/out":/out ghcr.io/charles8191/hardened_malloc/artifact 
+podman run -v ./out:/out ghcr.io/charles8191/hardened_malloc/artifact:DISTRO
 ```
 
 ## Demo
 
+Replace `DISTRO` with either `alpine` or `debian`.
+
 ```bash
-wget https://github.com/charles8191/hardened_malloc/raw/refs/heads/main/libhardened_malloc.so
-LD_PRELOAD=./libhardened_malloc.so /bin/echo "Hello, world!"
+wget https://github.com/charles8191/hardened_malloc/raw/refs/heads/main/libhardened_malloc-DISTRO.so
+LD_PRELOAD=./libhardened_malloc-DISTRO.so /bin/echo "Hello, world!"
 ```
 
 <sup><sub>Charles or the Netherite Project is not affilated with GrapheneOS in any way, shape or form.</sub></sup>
