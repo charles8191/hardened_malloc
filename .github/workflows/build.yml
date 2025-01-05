@@ -34,16 +34,31 @@ jobs:
           set -euxo pipefail
           mkdir out-rhel
           podman run -v ./out-rhel:/out ghcr.io/charles8191/hardened_malloc/artifact:debian
-      - name: Push binaries
+      - name: Configure Git
+        run: |
+          set -euxo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Push Alpine binary
         run: |
           set -euxo pipefail
           cp -vf out-alpine/libhardened_malloc.so libhardened_malloc-alpine.so
+          git add libhardened_malloc-alpine.so
+          git commit --allow-empty -m "[AUTOMATED] Upload Alpine binary"
+          git push
+      - name: Push Debian binary
+        run: |
+          set -euxo pipefail
           cp -vf out-debian/libhardened_malloc.so libhardened_malloc-debian.so
+          git add libhardened_malloc-debian.so
+          git commit --allow-empty -m "[AUTOMATED] Upload Debian binary"
+          git push
+      - name: Push RHEL binary
+        run: |
+          set -euxo pipefail
           cp -vf out-rhel/libhardened_malloc.so libhardened_malloc-rhel.so
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add libhardened_malloc-{alpine,debian,rhel}.so
-          git commit --allow-empty -m "[AUTOMATED] Upload binaries"
+          git add libhardened_malloc-rhel.so
+          git commit --allow-empty -m "[AUTOMATED] Upload RHEL binary"
           git push
       - name: Push Alpine container
         run: podman push ghcr.io/charles8191/hardened_malloc/artifact:alpine
