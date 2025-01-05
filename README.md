@@ -7,6 +7,8 @@ This is a simple containerized build tool that builds the very latest [hardened_
 
 We build this weekly using GitHub Actions.
 
+3 different buildroots are used. Alpine for musl-based systems, Debian for most glibc-based systems and RHEL for Fedora-based systems.
+
 There is a container artifact to build this, or you can use `podman-build.1` to build the container. Replace `DISTRO` with either `alpine`, `debian`, or `rhel`:
 
 ```bash
