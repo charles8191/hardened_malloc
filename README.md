@@ -7,9 +7,7 @@ This is a simple containerized build tool that builds the very latest [hardened_
 
 We build this weekly using GitHub Actions.
 
-You can build on Alpine (latest) for musl systems, and Debian (stable) for glibc systems.
-
-There is a container artifact to build this, or you can use `podman-build.1` to build the container. Replace `DISTRO` with either `alpine` or `debian`:
+There is a container artifact to build this, or you can use `podman-build.1` to build the container. Replace `DISTRO` with either `alpine`, `debian`, or `rhel`:
 
 ```bash
 mkdir out
@@ -18,11 +16,11 @@ podman run -v ./out:/out ghcr.io/charles8191/hardened_malloc/artifact:DISTRO
 
 ## Demo
 
-Replace `DISTRO` with either `alpine` or `debian`.
+Replace `DISTRO` with either `alpine`, `debian`, or `rhel`.
 
 ```bash
 wget https://github.com/charles8191/hardened_malloc/raw/refs/heads/main/libhardened_malloc-DISTRO.so
 LD_PRELOAD=./libhardened_malloc-DISTRO.so /bin/echo "Hello, world!"
 ```
 
-<sup><sub>Charles is not affilated with GrapheneOS in any way, shape or form.</sub></sup>
+Charles and this project is not affilated with GrapheneOS in any way, shape or form.

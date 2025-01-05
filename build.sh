@@ -1,5 +1,5 @@
 #!/bin/sh
-set -ex
+set -euxo pipefail
 git clone https://github.com/GrapheneOS/hardened_malloc.git /hardened_malloc
 cd hardened_malloc
 make -j$(nproc)
